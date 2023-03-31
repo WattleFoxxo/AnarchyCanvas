@@ -3,7 +3,9 @@ const express = require('express')
 const app = express()
 const http = require('http');
 const server = http.createServer(app);
+const nocache = require("nocache");
 
+app.use(nocache());
 // image
 const Jimp = require("jimp");
 

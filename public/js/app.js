@@ -35,19 +35,19 @@ const viewport = new pixi_viewport.Viewport({
     worldWidth: config.width,
     worldHeight: config.height,
     events: app.renderer.events
-})
-app.stage.addChild(viewport)
+});
+app.stage.addChild(viewport);
 
-viewport.drag({"mouseButtons":"middle-right"}).pinch().wheel().decelerate()
-viewport.fit()
-viewport.moveCenter(config.width / 2, config.height / 2)
-viewport.zoom
-viewport.clampZoom({"minScale":0.5, "maxScale":15})
+viewport.drag({"mouseButtons":"middle-right"}).pinch().wheel().decelerate();
+viewport.fit();
+viewport.moveCenter(config.width / 2, config.height / 2);
+viewport.zoom;
+viewport.clampZoom({"minScale":0.5, "maxScale":15});
 
 viewport.on("clicked", (e) => {
     if ((e.world.x >= 0 && e.world.y >= 0) && (e.world.x <= config.width && e.world.y <= config.height)){
-        socket.emit("draw", {"colour":pickedColour, "x":e.world.x, "y":e.world.y})
-        console.log('clicked (' + e.world.x + ',' + e.world.y + ')')
+        socket.emit("draw", {"colour":pickedColour, "x":e.world.x, "y":e.world.y});
+        draw(e.world.x, e.world.y, pickedColour);
     }
 });
 
@@ -60,12 +60,16 @@ var canvasSprite = new PIXI.Sprite(texture);
 viewport.addChild(canvasSprite);
 
 socket.on('server_draw', (msg) => {
+    draw(msg.x, msg.y, msg.colour);
+});
+
+function draw(x, y, c) {
     var graphics = new PIXI.Graphics();
-    graphics.beginFill(config.colours[msg.colour]);
-    graphics.drawRect(parseInt(msg.x), parseInt(msg.y), 1, 1);
+    graphics.beginFill(config.colours[c]);
+    graphics.drawRect(parseInt(x), parseInt(y), 1, 1);
     graphics.endFill();
     viewport.addChild(graphics);
-});
+}
 
 
 function setColour(colour) {

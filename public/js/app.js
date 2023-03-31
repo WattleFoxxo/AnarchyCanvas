@@ -2,7 +2,7 @@
 //  app.js - Anarchy Canvas  //
 //---------------------------// 
 
-var config = JSON.parse(httpGet("http://localhost:3000/api/config"));
+var config = JSON.parse(httpGet(`${window.location.origin}/api/config`));
 
 var socket = io();
 
@@ -51,7 +51,7 @@ viewport.on("clicked", (e) => {
     }
 });
 
-var texture = PIXI.Texture.from('http://localhost:3000/api/canvas');
+var texture = PIXI.Texture.from(`${window.location.origin}/api/canvas`);
 var canvasSprite = new PIXI.Sprite(texture);
 viewport.addChild(canvasSprite);
 

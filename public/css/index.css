@@ -47,3 +47,10 @@ button.focused {
     outline: 1px dotted #000000;
     outline-offset: -4px;
 }
+
+pre {
+    font-family: "Pixelated MS Sans Serif", Arial;
+    -webkit-font-smoothing: none;
+    font-size: 11px;
+    perspective: 1px;
+}

@@ -16,15 +16,8 @@ const config = require('./config.json')
 
 var canvas;
 
-const options = {
-    headers: {
-        'Cache-Control': 'no-cache',
-    }
-};
-
 // home page
 app.get('/', function (req, res) {
-    res.set('Cache-Control', 'no-store')
     res.sendFile(__dirname+"/public/index.html")
 })
 
@@ -52,7 +45,7 @@ app.get('/api/config', function (req, res) {
     res.send(JSON.stringify(config.canvas));
 })
 
-app.use(express.static('public', options))
+app.use(express.static('public'))
 
 
 Jimp.read(config.canvasPath, (err, image) => {

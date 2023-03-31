@@ -55,7 +55,7 @@ var base64 = httpGet(`${window.location.origin}/api/canvas`);
 var image = document.createElement("img");
 image.src = base64;
 var base = new PIXI.BaseTexture(image);
-var texture = PIXI.Texture.from(base);
+var texture = new PIXI.Texture(base);
 var canvasSprite = new PIXI.Sprite(texture);
 viewport.addChild(canvasSprite);
 

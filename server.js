@@ -40,7 +40,7 @@ io.on("connection", (socket) => {
 
 app.get('/api/canvas', function (req, res) {
     canvas.write(config.canvasPath)
-    res.sendFile(config.canvasPath, { root : __dirname})
+    res.sendFile(config.canvasPath, { root : '/'})
 })
 
 app.get('/api/config', function (req, res) {

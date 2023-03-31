@@ -49,12 +49,10 @@ app.get('/api/config', function (req, res) {
 
 app.use(express.static('public'))
 
-
 Jimp.read(config.canvasPath, (err, image) => {
     if (err) throw err;
     canvas = image
 });
-
 
 server.listen(config.port, () => {
     console.log(`listening on *:${config.port}`);

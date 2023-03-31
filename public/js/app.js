@@ -51,8 +51,9 @@ viewport.on("clicked", (e) => {
     }
 });
 
+var base64 = JSON.parse(httpGet(`${window.location.origin}/api/canvas`));
 var image = new Image();
-image.src = `${window.location.origin}/api/canvas`;
+image.src = base64;
 var base = new PIXI.BaseTexture(image);
 var texture = PIXI.Texture.from(base);
 var canvasSprite = new PIXI.Sprite(texture);

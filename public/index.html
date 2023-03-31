@@ -36,7 +36,32 @@
             <button id="15" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('15')"><div style="width: 100%; height: 100%; background-color: #000000;"></div></button>
         </div>
     </div>
-    
+    <div id="disclaimerBG">
+        <div class="window" id="disclaimer" style="width: 100%; max-width: 500px; height: 250px;">
+            <div class="title-bar">
+                <div class="title-bar-text">AnarchyCanvas Disclaimer</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+            </div>
+            </div>
+
+            <div class="window-body">
+            <p>This website may contine offencive content</p>
+            <ul class="tree-view" style="height: 140px;overflow-y: scroll;">
+                <li>AnarchyCanvas Disclaimer:</li>
+                <li>The drawings and content posted on AnarchyCanvas are the sole responsibility of the users who create them. AnarchyCanvas does not endorse or verify the accuracy or validity of any drawing or content posted on the website. The views and opinions expressed by the users on this website do not necessarily reflect those of AnarchyCanvas.</li>
+                <li>Users are solely responsible for their own drawings and content posted on AnarchyCanvas. AnarchyCanvas shall not be held liable for any damages or claims resulting from the use or inability to use the website or any content posted on it. By using AnarchyCanvas, users agree to indemnify and hold AnarchyCanvas harmless from any and all claims, damages, or expenses, including reasonable attorneys' fees, arising from or related to their use of the website or any content posted on it.</li>
+                <li>AnarchyCanvas reserves the right to remove any content posted on the website at any time and without prior notice. Users who violate these terms and conditions may have their access to AnarchyCanvas revoked.</li>
+                <li>By using AnarchyCanvas, users agree to these terms and conditions. If you do not agree with these terms, please do not use AnarchyCanvas.</li>
+            </ul>
+            <br>
+            <button onclick="agree()">I agree</button>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="js/libs/pixi.min.js"></script>
     <script src="js/libs/pixi_viewport.js"></script>

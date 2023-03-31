@@ -38,11 +38,6 @@ const viewport = new pixi_viewport.Viewport({
 });
 app.stage.addChild(viewport);
 
-viewport.drag({"mouseButtons":"middle-right"}).pinch().wheel().decelerate();
-viewport.fit();
-viewport.moveCenter(config.width / 2, config.height / 2);
-viewport.zoom;
-viewport.clampZoom({"minScale":0.5, "maxScale":15});
 
 viewport.on("clicked", (e) => {
     if ((e.world.x >= 0 && e.world.y >= 0) && (e.world.x <= config.width && e.world.y <= config.height)){
@@ -85,4 +80,14 @@ function httpGet(theUrl) {
     xmlHttp.open( "GET", theUrl, false );
     xmlHttp.send( null );
     return xmlHttp.responseText;
+}
+
+function agree() {
+    document.getElementById("disclaimerBG").remove()
+    viewport.drag({"mouseButtons":"middle-right"}).pinch().wheel().decelerate();
+    viewport.fit();
+    viewport.moveCenter(config.width / 2, config.height / 2);
+    viewport.zoom;
+    viewport.clampZoom({"minScale":0.5, "maxScale":15});
+
 }

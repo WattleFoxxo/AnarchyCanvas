@@ -20,6 +20,24 @@ canvas {
     text-align: center;
 }
 
+#disclaimer {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+
+#disclaimerBG {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #010081;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 button.active {
     box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a,
       inset -2px -2px #dfdfdf, inset 2px 2px #808080;

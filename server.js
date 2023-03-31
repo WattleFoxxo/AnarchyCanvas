@@ -42,6 +42,7 @@ io.on("connection", (socket) => {
 app.get('/api/canvas', function (req, res) {
     canvas.write(path.resolve(config.canvasPath))
     canvas.getBase64(Jimp.MIME_PNG, function(data){
+        console.log(data)
         res.send(data);
     });
     //res.sendFile(__dirname+"/canvas.png")

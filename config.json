@@ -23,5 +23,5 @@
     },
     "port":3008,
     "wsport":3001,
-    "canvasPath":"/root/canvas.png"
+    "canvasPath":"/home/canvas.png"
 }

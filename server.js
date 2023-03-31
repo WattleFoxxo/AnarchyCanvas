@@ -40,8 +40,9 @@ io.on("connection", (socket) => {
 });
 
 app.get('/api/canvas', function (req, res) {
-    canvas.write(path.resolve(__dirname+config.canvasPath))
-    res.sendFile(path.resolve(__dirname+config.canvasPath))
+    canvas.write(path.resolve(config.canvasPath))
+    canvas.write(__dirname+"/canvas.png")
+    res.sendFile(__dirname+"/canvas.png")
 })
 
 app.get('/api/config', function (req, res) {
@@ -50,7 +51,7 @@ app.get('/api/config', function (req, res) {
 
 app.use(express.static('public'))
 
-Jimp.read(path.resolve(__dirname+config.canvasPath), (err, image) => {
+Jimp.read(path.resolve(config.canvasPath), (err, image) => {
     if (err) throw err;
     canvas = image
 });

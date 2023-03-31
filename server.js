@@ -41,8 +41,8 @@ io.on("connection", (socket) => {
 
 app.get('/api/canvas', function (req, res) {
     canvas.write(path.resolve(config.canvasPath))
-    canvas.write(__dirname+"/canvas.png")
-    res.sendFile(__dirname+"/canvas.png")
+    res.send(image.getBase64Async(canvas));
+    //res.sendFile(__dirname+"/canvas.png")
 })
 
 app.get('/api/config', function (req, res) {

@@ -4,6 +4,7 @@ const app = express()
 const http = require('http');
 const server = http.createServer(app);
 const nocache = require("nocache");
+const path = require('path');
 
 app.use(nocache());
 // image
@@ -39,8 +40,8 @@ io.on("connection", (socket) => {
 });
 
 app.get('/api/canvas', function (req, res) {
-    canvas.write(__dirname+config.canvasPath)
-    res.sendFile(__dirname+config.canvasPath)
+    canvas.write(path.resolve(__dirname+config.canvasPath))
+    res.sendFile(path.resolve(__dirname+config.canvasPath))
 })
 
 app.get('/api/config', function (req, res) {
@@ -49,7 +50,7 @@ app.get('/api/config', function (req, res) {
 
 app.use(express.static('public'))
 
-Jimp.read(__dirname+config.canvasPath, (err, image) => {
+Jimp.read(path.resolve(__dirname+config.canvasPath), (err, image) => {
     if (err) throw err;
     canvas = image
 });

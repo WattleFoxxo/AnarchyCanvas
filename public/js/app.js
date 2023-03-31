@@ -51,7 +51,10 @@ viewport.on("clicked", (e) => {
     }
 });
 
-var texture = PIXI.Texture.from(`${window.location.origin}/api/canvas`);
+var image = new Image();
+image.src = `${window.location.origin}/api/canvas`;
+var base = new PIXI.BaseTexture(image);
+var texture = PIXI.Texture.from(base);
 var canvasSprite = new PIXI.Sprite(texture);
 viewport.addChild(canvasSprite);
 

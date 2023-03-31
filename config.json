@@ -21,7 +21,7 @@
             "15":"0x000000"
         }
     },
-    "port":3000,
+    "port":3008,
     "wsport":3001,
     "canvasPath":"/root/canvas.png"
 }

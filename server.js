@@ -6,7 +6,8 @@ const server = http.createServer(app);
 const nocache = require("nocache");
 const path = require('path');
 
-app.use(nocache());
+//app.use(nocache());
+
 // image
 const Jimp = require("jimp");
 
@@ -44,7 +45,6 @@ app.get('/api/canvas', function (req, res) {
     canvas.getBase64(Jimp.MIME_PNG, (err, src) => {
         res.send(src);
     });
-    //res.sendFile(__dirname+"/canvas.png")
 })
 
 app.get('/api/config', function (req, res) {

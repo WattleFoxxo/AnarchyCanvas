@@ -89,5 +89,4 @@ function agree() {
     viewport.moveCenter(config.width / 2, config.height / 2);
     viewport.zoom;
     viewport.clampZoom({"minScale":0.5, "maxScale":15});
-
 }

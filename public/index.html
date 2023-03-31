@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Anarchy Canvas</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/98css/98.css"/>
+</head>
+<body>
+
+    <div class="window" id="colourpicker" style="width: 300px">
+        <div class="title-bar">
+            <div class="title-bar-text">Anarchy canvas - Colour picker</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <button id="1" class="active focused" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('1')"><div style="width: 100%; height: 100%; background-color: #ffff00;"></div></button>
+            <button id="2" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('2')"><div style="width: 100%; height: 100%; background-color: #ff6500;"></div></button>
+            <button id="3" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('3')"><div style="width: 100%; height: 100%; background-color: #dc0000;"></div></button>
+            <button id="4" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('4')"><div style="width: 100%; height: 100%; background-color: #ff0097;"></div></button>
+            <button id="5" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('5')"><div style="width: 100%; height: 100%; background-color: #360097;"></div></button>
+            <button id="6" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('6')"><div style="width: 100%; height: 100%; background-color: #0000ca;"></div></button>
+            <button id="7" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('7')"><div style="width: 100%; height: 100%; background-color: #0097ff;"></div></button>
+            <button id="8" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('8')"><div style="width: 100%; height: 100%; background-color: #00a800;"></div></button>
+            <button id="9" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('9')"><div style="width: 100%; height: 100%; background-color: #006500;"></div></button>
+            <button id="10" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('10')"><div style="width: 100%; height: 100%; background-color: #653600;"></div></button>
+            <button id="11" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('11')"><div style="width: 100%; height: 100%; background-color: #976536;"></div></button>
+            <button id="0" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('0')"><div style="width: 100%; height: 100%; background-color: #ffffff;"></div></button>
+            <button id="12" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('12')"><div style="width: 100%; height: 100%; background-color: #b9b9b9;"></div></button>
+            <button id="13" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('13')"><div style="width: 100%; height: 100%; background-color: #868686;"></div></button>
+            <button id="14" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('14')"><div style="width: 100%; height: 100%; background-color: #454545;"></div></button>
+            <button id="15" class="active" style="padding: 2px; width: 32px; height: 32px;" onclick="setColour('15')"><div style="width: 100%; height: 100%; background-color: #000000;"></div></button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="js/libs/pixi.min.js"></script>
+    <script src="js/libs/pixi_viewport.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

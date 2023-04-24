@@ -23,7 +23,8 @@ var canvas;
 // home page
 app.get('/', function (req, res) {
     res.sendFile(__dirname+"/public/index.html")
-    console.log(req.socket.remoteAddress)
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress 
+    console.log(ip)
 })
 
 // sockets

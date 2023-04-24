@@ -34,7 +34,8 @@ io.on("connection", (socket) => {
         socket.emit("server_draw", msg);
     });
 
-    console.log("a user connected");
+    var address = socket.handshake.address;
+    console.log("a user connected with ip: "+socket.request.connection.remoteAddress);
     socket.on("disconnect", () => {
         console.log("user disconnected");
     });

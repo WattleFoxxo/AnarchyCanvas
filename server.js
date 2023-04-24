@@ -23,6 +23,7 @@ var canvas;
 // home page
 app.get('/', function (req, res) {
     res.sendFile(__dirname+"/public/index.html")
+    console.log(req.socket.remoteAddress)
 })
 
 // sockets
@@ -35,7 +36,7 @@ io.on("connection", (socket) => {
     });
 
     var address = socket.handshake.address;
-    console.log("a user connected with ip: "+socket.request.connection.remoteAddress);
+    console.log("a user connected");
     socket.on("disconnect", () => {
         console.log("user disconnected");
     });

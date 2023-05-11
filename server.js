@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
     socket.on("draw", (msg) => {
         canvas.setPixelColor(parseInt(config.canvas.colours[msg.colour]+"FF"), parseInt(msg.x), parseInt(msg.y));
         socket.broadcast.emit("server_draw", msg);
-        socket.emit("server_draw", msg);
+        //socket.emit("server_draw", msg);
     });
 
     console.log("a user connected");

@@ -16,7 +16,7 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 
 // config
-const config = require('./config.json')
+const config = require('../config.json')
 
 var canvas;
 

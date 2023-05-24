@@ -31,8 +31,12 @@ app.get('/', function (req, res) {
 io.on("connection", (socket) => {
 
     socket.on("draw", (msg) => {
-        canvas.setPixelColor(parseInt(config.canvas.colours[msg.colour]+"FF"), parseInt(msg.x), parseInt(msg.y));
-        socket.broadcast.emit("server_draw", msg);
+        try {
+            canvas.setPixelColor(parseInt(config.canvas.colours[msg.colour]+"FF"), parseInt(msg.x), parseInt(msg.y));
+            socket.broadcast.emit("server_draw", msg);
+        } catch {
+            console.log("im layzy to do this properly :(");
+        }
         //socket.emit("server_draw", msg);
     });
 

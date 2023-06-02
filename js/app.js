@@ -58,14 +58,6 @@ socket.on('server_draw', (msg) => {
     draw(msg.x, msg.y, msg.colour);
 });
 
-function draw(x, y, c) {
-    var graphics = new PIXI.Graphics();
-    graphics.beginFill(config.colours[c]);
-    graphics.drawRect(parseInt(x), parseInt(y), 1, 1);
-    graphics.endFill();
-    viewport.addChild(graphics);
-}
-
 
 function setColour(colour) {
     var oldbutton = document.getElementById(pickedColour);

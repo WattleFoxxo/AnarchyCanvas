@@ -2,7 +2,7 @@
 //  app.js - Anarchy Canvas  //
 //---------------------------// 
 
-var config = JSON.parse(httpGet(`${window.location.origin}/api/config`));
+var config = JSON.parse(httpGet(`${window.location.href}api/config`));
 
 var socket = io();
 
@@ -46,7 +46,7 @@ viewport.on("clicked", (e) => {
     }
 });
 
-var base64 = httpGet(`${window.location.origin}/api/canvas`);
+var base64 = httpGet(`${window.location.href}api/canvas`);
 var image = document.createElement("img");
 image.src = base64;
 var base = new PIXI.BaseTexture(image);

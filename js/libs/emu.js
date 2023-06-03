@@ -10,28 +10,31 @@ for (var i = 0; i < size; i++) {
     }
 }
 
+var buffer2 = []
+for (var i = 0; i < size; i++) {
+    buffer2[i]=[];
+    for (var j = 0; j < size; j++) {
+        buffer2[i][j] = 0;
+    }
+}
+
 var SocketEmu = {
     emit: function(name, msg) {
         if (name == "draw") {
             SocketEmu.on(msg);
+            buffer[parseInt(msg.x)][parseInt(msg.y)] = msg.colour
         }
     },
     on: function(msg) {}
 }
 
 function io() {
-    
-    draw = function(x, y, c) {
+    SocketEmu.on = function(msg) {
         var graphics = new PIXI.Graphics();
-        graphics.beginFill(config.colours[c]);
-        graphics.drawRect(parseInt(x), parseInt(y), 1, 1);
+        graphics.beginFill(config.colours[msg.colour]);
+        graphics.drawRect(parseInt(msg.x), parseInt(msg.y), 1, 1);
         graphics.endFill();
         viewport.addChild(graphics);
-        buffer[parseInt(x)][parseInt(y)] = c
-    }
-
-    SocketEmu.on = function(msg) {
-        draw(msg.x, msg.y, msg.colour);
     };
 
     autoCheck();

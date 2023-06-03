@@ -42,7 +42,12 @@ app.stage.addChild(viewport);
 viewport.on("clicked", (e) => {
     if ((e.world.x >= 0 && e.world.y >= 0) && (e.world.x <= config.width && e.world.y <= config.height)){
         socket.emit("draw", {"colour":pickedColour, "x":e.world.x, "y":e.world.y});
-        draw(e.world.x, e.world.y, pickedColour);
+        
+        var graphics = new PIXI.Graphics();
+        graphics.beginFill(config.colours[pickedColour]);
+        graphics.drawRect(parseInt(e.world.x), parseInt(e.world.y), 1, 1);
+        graphics.endFill();
+        viewport.addChild(graphics);
     }
 });
 
@@ -55,7 +60,11 @@ var canvasSprite = new PIXI.Sprite(texture);
 viewport.addChild(canvasSprite);
 
 socket.on('server_draw', (msg) => {
-    draw(msg.x, msg.y, msg.colour);
+    var graphics = new PIXI.Graphics();
+    graphics.beginFill(config.colours[msg.colour]);
+    graphics.drawRect(parseInt(msg.x), parseInt(msg.y), 1, 1);
+    graphics.endFill();
+    viewport.addChild(graphics);
 });
 
 
